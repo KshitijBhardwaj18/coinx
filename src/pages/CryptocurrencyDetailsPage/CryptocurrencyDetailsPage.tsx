@@ -4,6 +4,7 @@ import useApiCall from "../../hooks/useApiCall";
 import { deepCompare } from "../../utils";
 
 import Hero from "./components/Hero"
+import  { Sectionbar }  from "./components/Sectionbar"; 
 
 
 
@@ -46,6 +47,7 @@ export default function CryptocurrencyDetailsPage() {
         <div className="flex mobile:flex-col justify-between mobile:gap-5 widescreen:gap-10 items-start w-full mt-3 ">
           <div className="flex flex-col widescreen:w-[65%] w-full gap-6">
             <Hero symbol={coininfo?.data?.symbol || ""} logo={coininfo?.data?.image?.thumb || ""}/>
+            <Sectionbar/>
             
             
           </div>
