@@ -32,7 +32,22 @@ type ApiEndpoints = [
       name: string;
       description: { en: string };
       image: { thumb: string };
-      market_data: { current_price: { usd: string } };
+      market_cap_rank: number;
+      market_data: {
+         current_price: { usd: number };
+         ath: { usd: number};
+         ath_change_percentage: { usd: number};
+         ath_date: { usd: string};
+         atl: { usd: number};
+         atl_change_percentage: { usd: number};
+         atl_date: { usd: string};
+         market_cap: { usd: number};
+         total_volume: { usd: number};
+         high_24h: { usd: number};
+         low_24h: { usd: number};
+         market_cap_change_percentage_24h: number;
+
+      };
     };
   }
 ];
