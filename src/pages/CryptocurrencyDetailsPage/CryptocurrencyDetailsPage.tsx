@@ -6,6 +6,7 @@ import { deepCompare } from "../../utils";
 import Hero from "./components/Hero"
 import  { Sectionbar }  from "./components/Sectionbar";
 import Performance from "./components/Performance"; 
+import Sentiment from "./components/Sentiment";
 
 
 
@@ -50,6 +51,7 @@ export default function CryptocurrencyDetailsPage() {
             <Hero symbol={coininfo?.data?.symbol || ""} logo={coininfo?.data?.image?.thumb || ""}/>
             <Sectionbar/>
             <Performance/>
+            <Sentiment/>
             
             
           </div>
