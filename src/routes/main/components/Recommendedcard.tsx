@@ -34,7 +34,7 @@ export function Recommendedcard({data}:any) {
           <div
             key={d?.item?.id}
             className={twMerge(
-              `flex flex-col justify-center items-start p-3 gap-2 bg-foreground min-w-[200px] rounded-lg border border-light_gray`,
+              `flex flex-col justify-center items-start p-5 gap-2 bg-foreground min-w-[300px] rounded-lg  border-[#E3E3E3] border-[1px]`,
               d.item.data.price.includes("sub title") && "hidden"
             )}
           >

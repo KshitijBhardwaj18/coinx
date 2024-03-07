@@ -19,8 +19,8 @@ export default function Navbar() {
        {navLinks.map((nav,i) =>(
         <li
           key = {nav.id}
-          className={`font-poppins
-          font-medium cursor-pointer text-[16px] text-black ${i=== navLinks.length-1 ? 'mr-0' : 'mr-10'}`}>
+          className={`font-inter
+          font-[700] cursor-pointer text-[16px] text-[#0F1629] ${i=== navLinks.length-1 ? 'mr-0' : 'mr-10'}`}>
             <a href = {`#${nav.id}`}>
                 {nav.title}
             </a>
@@ -28,9 +28,12 @@ export default function Navbar() {
        ))}
        
     </ul>
-    <button type='button' className='widescreen:flex hidden px-5 py-2 font-medium text-[16px] rounded-lg text-foreground bg-blue hover:bg-[#0f43b2] duration-300 outline-none border-none'>
-      Get Started
-    </button>
+    <button
+  type='button'
+  className='widescreen:flex hidden px-5 py-2 font-medium text-[16px] rounded-lg text-foreground bg-gradient-to-r from-[#2870EA] via-[#1B4AEF] to-[#2870EA] hover:from-[#0f43b2] hover:via-[#0f43b2] hover:to-[#1B4AEF] duration-300 outline-none border-none'
+>
+  Get Started
+</button>
     </div>
     <div className='widescreen:hidden flex flex-1 justify-end items-center'>
         <img src={toggle ? close : menu} 

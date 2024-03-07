@@ -31,8 +31,7 @@ export default {
         inherit: "inherit",
       },
       fontFamily: {
-        poppins: '"Poppins", sans-serif',
-        raleway: '"Raleway", sans-serif',
+        inter: ['Inter', 'sans-serif'],
       },
       zIndex: {
         1: 1,

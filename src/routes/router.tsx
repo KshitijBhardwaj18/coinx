@@ -6,8 +6,8 @@ import {
   } from "react-router-dom";
   import Layout from "../layout";
   
-  import ErrorPage from "./ErrorPage/ErrorPage";
-  import CryptocurrencyDetailsPage from "./CryptocurrencyDetailsPage/CryptocurrencyDetailsPage";
+  import ErrorPage from "./404page/Error";
+  import CryptocurrencyDetailsPage from "./main/main";
   
   const router = createBrowserRouter(
     createRoutesFromElements(
