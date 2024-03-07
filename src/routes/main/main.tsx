@@ -53,7 +53,7 @@ export default function CryptocurrencyDetailsPage() {
         </div>
         <div className="flex mobile:flex-col justify-between mobile:gap-5 widescreen:gap-10 items-start w-full mt-3 ">
           <div className="flex flex-col widescreen:w-[65%] w-full gap-6">
-            <Hero symbol={coininfo?.data?.symbol || ""} logo={coininfo?.data?.image?.thumb || ""}/>
+            <Hero symbol={coininfo?.data?.symbol || ""} logo={coininfo?.data?.image?.thumb || ""} rank={coininfo?.data?.market_cap_rank || 0}/>
             <Sectionbar/>
             <Performance/>
             <Sentiment/>
