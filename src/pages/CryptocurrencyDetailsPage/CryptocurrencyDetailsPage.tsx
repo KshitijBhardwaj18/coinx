@@ -7,6 +7,7 @@ import Hero from "./components/Hero"
 import  { Sectionbar }  from "./components/Sectionbar";
 import Performance from "./components/Performance"; 
 import Sentiment from "./components/Sentiment";
+import About from "./components/About";
 
 
 
@@ -52,6 +53,7 @@ export default function CryptocurrencyDetailsPage() {
             <Sectionbar/>
             <Performance/>
             <Sentiment/>
+            <About/>
             
             
           </div>
