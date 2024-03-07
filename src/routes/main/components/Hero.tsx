@@ -4,7 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { deepCompare } from "../../../utils";
 import TradingViewWidget from "./Chart";
 
-export default function Hero({symbol, logo}: {symbol: string, logo: string}) {
+export default function Hero({symbol,logo,rank}: {
+  symbol: string;
+  logo: string;
+  rank: number;
+}) {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -22,62 +26,77 @@ export default function Hero({symbol, logo}: {symbol: string, logo: string}) {
     }
   }, [info.data]);
 
-  const data = id != undefined ? info.data?.[id] : undefined
+  const data = id != undefined ? info.data?.[id] : undefined;
 
   console.log(data);
 
   return (
     <>
-    <div className="flex  flex-row sm:hidden items-center gap-2  ">
-        <img src={logo} alt="symbol" className="w-[40px] h-[40px]" />
-        <h3 className="text-[24px] md:text-[20px] font-[700] text-[#0B1426;
-]">
+    <div className="flex pl-1 sm:hidden items-center gap-2">
+        <img src={logo} alt="symbol" className="w-[40px] h-[40px] rounded-full" />
+        <h3 className="text-[25px] md:text-[20px] font-semibold text-black">
           {id && id?.charAt(0).toUpperCase() + id?.slice(1)}
         </h3>
-        <p className="text-[16px] md:text-[16px] font-[600] flex flex-col justify-center text-[#5D667B]">{symbol.toUpperCase()}</p>
-        <div className="flex justify-center items-center px-4 py-2 rounded-xl bg-[#808A9D] ml-8">
+        <p className="text-[14px] md:text-[14px] font-[600] text-[#5D667B]">
+          {symbol.toUpperCase()}
+        </p>
+        <div className="flex justify-center items-center px-3 py-2 rounded-lg bg-[#808A9D] ml-4">
           <span className="text-[16px] md:text-[14px] text-foreground">
-            Rank #1
+            Rank #{rank}
           </span>
         </div>
       </div>
-    <section className="flex flex-col justify-center items-start bg-foreground rounded-xl h-[500px] p-4 gap-2 w-full">
-
-      <div className="sm:flex  sm:flex-row justify-center items-center gap-2 hidden ">
-        <img src={logo} alt="symbol" className="w-[40px] h-[40px]" />
-        <h3 className="text-[24px] md:text-[20px] font-[700] text-[#0B1426;
-]">
+    <section className="flex flex-col justify-center items-start bg-foreground rounded-xl p-6 gap-2 w-full">
+      <div className="hidden sm:flex justify-center items-center gap-1">
+        <img src={logo} alt="symbol" className="w-[40px] h-[40px] rounded-full" />
+        <h3 className="text-[25px] md:text-[20px] font-semibold text-black">
           {id && id?.charAt(0).toUpperCase() + id?.slice(1)}
         </h3>
-        <p className="text-[16px] md:text-[16px] font-[600] flex flex-col justify-center text-[#5D667B]">{symbol.toUpperCase()}</p>
-        <div className="flex justify-center items-center px-4 py-2 rounded-xl bg-[#808A9D] ml-8">
+        <p className="text-[14px] flex flex-col justify-center md:text-[14px] font-[700] text-[#5D667B]">
+          {symbol.toUpperCase()}
+        </p>
+        <div className="flex justify-center items-center px-3 py-2 rounded-xl bg-[#808A9D] ml-4">
           <span className="text-[16px] md:text-[14px] text-foreground">
-            Rank #1
+            Rank #{rank}
           </span>
         </div>
       </div>
-      <div className="flex justify-center items-start gap-4 sm:mt-6 ">
+      <div className="flex justify-center items-start gap-4 sm:mt-4">
         <div className="flex flex-col justify-center items-start">
           <div className="flex justify-center items-center gap-6">
-            <span className="text-[28px] md:text-[28px] font-inter font-[600] text-[#0B1426] leading-[38.4px]">
-              ${data?.usd}
+            <span className="text-[28px] md:text-[28px] font-[600] text-[#0B1426]">
+              ${data?.usd.toLocaleString()}
             </span>
-            <div className=" flex justify-center items-center gap-10">
-              <span className={`text-[14px]  font-medium px-2 rounded-md ${info?.data?.bitcoin?.usd_24h_change && info?.data?.bitcoin?.usd_24h_change < 0 ? 'text-primary bg-light_red': 'text-secondary bg-green'}`}>
-                  {data?.usd_24h_change && data?.usd_24h_change < 0 ? (<span>&#9660;</span>) : (<span>&#9650;</span>)}
-                  {data?.usd_24h_change?.toFixed(2)}%
+            <div className=" flex justify-center items-center gap-2">
+              <span
+                className={`text-[14px]  font-mediu  rounded-md ${
+                  data?.usd_24h_change &&
+                  data?.usd_24h_change < 0
+                    ? "text-primary bg-light_red"
+                    : "text-secondary bg-green"
+                }`}
+              >
+                {data?.usd_24h_change && data?.usd_24h_change < 0 ? (
+                  <span>&#9660;</span>
+                ) : (
+                  <span>&#9650;</span>
+                )}
+                {data?.usd_24h_change?.toFixed(2)}%
               </span>
-              <span className="text-[14px] md:text-[12px] font-medium text-gray">
+              <span className="text-[14px] md:text-[12px] font-medium ml-3 text-[#5D667B]">
                 (24H)
               </span>
             </div>
           </div>
           <span className="text-[16px] md:text-[14px] font-medium text-black">
-            &#8377; {data?.inr}
+            &#8377; {data?.inr.toLocaleString()}
           </span>
         </div>
       </div>
-      <TradingViewWidget/>
+      <hr className="border-[#e3dfdf] w-full  " />
+      <div className="flex justify-center items-center w-full h-[500px]">
+        {symbol && <TradingViewWidget symbol={symbol} />}
+      </div>
     </section>
     </>
   );
