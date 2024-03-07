@@ -2,6 +2,7 @@ import useApiCall from "../../../hooks/useApiCall";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deepCompare } from "../../../utils";
+import TradingViewWidget from "./Chart";
 
 export default function Hero({symbol, logo}: {symbol: string, logo: string}) {
   const { id } = useParams();
@@ -26,7 +27,7 @@ export default function Hero({symbol, logo}: {symbol: string, logo: string}) {
   console.log(data);
 
   return (
-    <section className="flex flex-col justify-center items-start bg-foreground rounded-xl p-6 gap-2 w-full">
+    <section className="flex flex-col justify-center items-start bg-foreground rounded-xl h-[500px] p-6 gap-2 w-full">
       <div className="flex justify-center items-center gap-2">
         <img src={logo} alt="symbol" className="w-[40px] h-[40px]" />
         <h3 className="text-[25px] md:text-[20px] font-semibold text-black">
@@ -60,6 +61,7 @@ export default function Hero({symbol, logo}: {symbol: string, logo: string}) {
           </span>
         </div>
       </div>
+      <TradingViewWidget/>
     </section>
   );
 }

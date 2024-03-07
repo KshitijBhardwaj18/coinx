@@ -1,6 +1,6 @@
 import { RouterProvider } from "react-router-dom";
 import { GlobalContextProvider } from "./contexts/globalContext";
-import router from "./pages/router";
+import router from "./routes/router";
 
 export default function App() {
   return (
