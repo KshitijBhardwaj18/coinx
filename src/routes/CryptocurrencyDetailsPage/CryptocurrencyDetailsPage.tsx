@@ -8,6 +8,8 @@ import  { Sectionbar }  from "./components/Sectionbar";
 import Performance from "./components/Performance"; 
 import Sentiment from "./components/Sentiment";
 import About from "./components/About";
+import Team from "./components/Team";
+
 import Recommended from "./components/Recommended";
 
 
@@ -55,6 +57,8 @@ export default function CryptocurrencyDetailsPage() {
             <Performance/>
             <Sentiment/>
             <About/>
+            
+            <Team/>
             <Recommended data={info?.data}/>
             
             
